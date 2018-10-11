@@ -6,12 +6,19 @@ LOG="/var/log/bbycaSRE.log"
 DEPLOYPATH="/opt/bbycaSRE/"
 
 #Define Environment Variables for DEV, TEST, DR and PROD 
+#Development
 DEVENV="DEV"
 DEVPORT="8001"
+
+#Test
 TESTENV="TEST"
 TESTPORT="8002"
+
+#Disaster Recovery
 DRENV="DR"
 DRPORT="8003"
+
+#Production
 PRODENV="PROD"
 PRODPORT="8004"
 
@@ -28,7 +35,7 @@ then
 	cp -prf $STAGING/* $DEPLOYPATH/$DEVENV
 	date +"%d-%b-%Y %H:%M:%S (%Z) Starting Best Buy $ENV Node Js Application...!!!" >> $LOG
 	#Start the Server in background
-	node $DEPLOYPATH/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
+	node $DEPLOYPATH/$DEVENV/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
 
 elif [ "$DEPLOYMENT_GROUP_NAME" = "Test" ]
 then
@@ -38,7 +45,7 @@ then
 	cp -prf $STAGING/* $DEPLOYPATH/$TESTENV
 	date +"%d-%b-%Y %H:%M:%S (%Z) Starting Best Buy $ENV Node Js Application...!!!" >> $LOG
 	#Start the Server in background
-	node $DEPLOYPATH/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
+	node $DEPLOYPATH/$TESTENV/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
 
 elif [ "$DEPLOYMENT_GROUP_NAME" = "Disaster" ]
 then
@@ -48,7 +55,7 @@ then
 	cp -prf $STAGING/* $DEPLOYPATH/$DRENV
 	date +"%d-%b-%Y %H:%M:%S (%Z) Starting Best Buy $ENV Node Js Application...!!!" >> $LOG
 	#Start the Server in background
-	node $DEPLOYPATH/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
+	node $DEPLOYPATH/$DRENV/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
 
 elif [ "$DEPLOYMENT_GROUP_NAME" = "Production" ]
 then
@@ -58,7 +65,7 @@ then
 	cp -prf $STAGING/* $DEPLOYPATH/$PRODENV
 	date +"%d-%b-%Y %H:%M:%S (%Z) Starting Best Buy $ENV Node Js Application...!!!" >> $LOG
 	#Start the Server in background
-	node $DEPLOYPATH/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
+	node $DEPLOYPATH/$PRODENV/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
 
 else
 	date +"%d-%b-%Y %H:%M:%S (%Z) Unknown Deployment Group: $DEPLOYMENT_GROUP_NAME Detected!!! Deployment has Failed!!!" >> $LOG
