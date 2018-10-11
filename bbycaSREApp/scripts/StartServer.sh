@@ -6,6 +6,8 @@ ENV="DEV"
 PORT="8000"
 LOG="/var/log/bbycaSRE.log"
 
+source ~/.bashrc
+
 date +"%d-%b-%Y %H:%M:%S (%Z) ENV: $ENV PORT: $PORT CURDIR:$CURDIR DEPLOYPATH: $DEPLOYPATH DEPLOYMENT GRP: $DEPLOYMENT_GROUP_NAME" >> /var/log/bbycaSRE.log
 
 export ENV=$ENV
