@@ -35,6 +35,7 @@ then
 	#Start the Server in background
 	node $DEPLOYPATH/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
 else
+	date +"%d-%b-%Y %H:%M:%S (%Z) Unknown Deployment Group: $DEPLOYMENT_GROUP_NAME Detected!!! Deployment has Failed!!!" >> $LOG
 	#Fail and Exit
 	exit 1
 fi
