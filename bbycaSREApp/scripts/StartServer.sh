@@ -3,7 +3,7 @@
 #Initialize Paths
 STAGING="/var/bbycasre/staging"
 LOG="/var/log/bbycaSRE.log"
-DEPLOYPATH="/opt/bbycaSRE/"
+DEPLOYPATH="/opt/bbycaSRE"
 
 #Define Environment Variables for DEV, TEST, DR and PROD 
 #Development
