@@ -1,0 +1,20 @@
+version: 0.0
+os: linux
+files:
+   - source: /
+     destination: /var/bbycasre/staging
+permissions:
+   - object: /var/bbycasre/staging
+     pattern: "**"
+     owner: root
+     group: root
+     mode: 755
+     type:
+       - file
+hooks:
+   BeforeInstall:
+    - location: scripts/before.sh
+      runas: root
+   AfterInstall:
+    - location: scripts/after.sh
+      runas: root
