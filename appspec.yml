@@ -13,8 +13,8 @@ permissions:
        - file
 hooks:
    BeforeInstall:
-    - location: scripts/before.sh
+    - location: bbycaSREApp/scripts/before.sh
       runas: root
    AfterInstall:
-    - location: scripts/after.sh
+    - location: bbycaSREApp/scripts/after.sh
       runas: root
