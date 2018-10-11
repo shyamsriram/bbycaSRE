@@ -15,6 +15,10 @@ hooks:
    BeforeInstall:
     - location: bbycaSREApp/scripts/before.sh
       runas: root
+    - location: bbycaSREApp/scripts/StopServer.sh
+      runas: root
    AfterInstall:
+    - location: bbycaSREApp/scripts/StartServer.sh
+      runas: root
     - location: bbycaSREApp/scripts/after.sh
       runas: root
