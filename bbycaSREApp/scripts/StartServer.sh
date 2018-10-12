@@ -32,7 +32,7 @@ then
 	export ENV=$DEVENV
 	export PORT=$DEVPORT
 	mkdir -p $DEPLOYPATH/$DEVENV
-	cp -prf $STAGING/* $DEPLOYPATH/$DEVENV
+	cp -prf $STAGING/* $DEPLOYPATH/$DEVENV/bbycaSREApp
 	date +"%d-%b-%Y %H:%M:%S (%Z) Starting Best Buy $ENV Node Js Application...!!!" >> $LOG
 	#Start the Server in background
 	node $DEPLOYPATH/$DEVENV/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
@@ -42,7 +42,7 @@ then
 	export ENV=$TESTENV
 	export PORT=$TESTPORT
 	mkdir -p $DEPLOYPATH/$TESTENV
-	cp -prf $STAGING/* $DEPLOYPATH/$TESTENV
+	cp -prf $STAGING/* $DEPLOYPATH/$TESTENV/bbycaSREApp
 	date +"%d-%b-%Y %H:%M:%S (%Z) Starting Best Buy $ENV Node Js Application...!!!" >> $LOG
 	#Start the Server in background
 	node $DEPLOYPATH/$TESTENV/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
@@ -52,7 +52,7 @@ then
 	export ENV=$DRENV
 	export PORT=$DRPORT
 	mkdir -p $DEPLOYPATH/$DRENV
-	cp -prf $STAGING/* $DEPLOYPATH/$DRENV
+	cp -prf $STAGING/* $DEPLOYPATH/$DRENV/bbycaSREApp
 	date +"%d-%b-%Y %H:%M:%S (%Z) Starting Best Buy $ENV Node Js Application...!!!" >> $LOG
 	#Start the Server in background
 	node $DEPLOYPATH/$DRENV/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
@@ -62,7 +62,7 @@ then
 	export ENV=$PRODENV
 	export PORT=$PRODPORT
 	mkdir -p $DEPLOYPATH/$PRODENV
-	cp -prf $STAGING/* $DEPLOYPATH/$PRODENV
+	cp -prf $STAGING/* $DEPLOYPATH/$PRODENV/bbycaSREApp
 	date +"%d-%b-%Y %H:%M:%S (%Z) Starting Best Buy $ENV Node Js Application...!!!" >> $LOG
 	#Start the Server in background
 	node $DEPLOYPATH/$PRODENV/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
@@ -75,7 +75,7 @@ then
 	export ENV=$DEVENV
 	export PORT=$DEVPORT
 	mkdir -p $DEPLOYPATH/$DEVENV
-	cp -prf $STAGING/* $DEPLOYPATH/$DEVENV
+	cp -prf $STAGING/* $DEPLOYPATH/$DEVENV/bbycaSREApp
 	date +"%d-%b-%Y %H:%M:%S (%Z) Starting Best Buy DEV Node Js Application...!!!" >> $LOG
 	node $DEPLOYPATH/$DEVENV/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
 
@@ -83,7 +83,7 @@ then
 	export ENV=$TESTENV
 	export PORT=$TESTPORT
 	mkdir -p $DEPLOYPATH/$TESTENV
-	cp -prf $STAGING/* $DEPLOYPATH/$TESTENV
+	cp -prf $STAGING/* $DEPLOYPATH/$TESTENV/bbycaSREApp
 	date +"%d-%b-%Y %H:%M:%S (%Z) Starting Best Buy TEST Node Js Application...!!!" >> $LOG
 	node $DEPLOYPATH/$TESTENV/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
 
@@ -91,7 +91,7 @@ then
 	export ENV=$DRENV
 	export PORT=$DRPORT
 	mkdir -p $DEPLOYPATH/$DRENV
-	cp -prf $STAGING/* $DEPLOYPATH/$DRENV
+	cp -prf $STAGING/* $DEPLOYPATH/$DRENV/bbycaSREApp
 	date +"%d-%b-%Y %H:%M:%S (%Z) Starting Best Buy DR Node Js Application...!!!" >> $LOG
 	node $DEPLOYPATH/$DRENV/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
 
@@ -99,7 +99,7 @@ then
 	export ENV=$PRODENV
 	export PORT=$PRODPORT
 	mkdir -p $DEPLOYPATH/$PRODENV
-	cp -prf $STAGING/* $DEPLOYPATH/$PRODENV
+	cp -prf $STAGING/* $DEPLOYPATH/$PRODENV/bbycaSREApp
 	date +"%d-%b-%Y %H:%M:%S (%Z) Starting Best Buy PROD Node Js Application...!!!" >> $LOG
 	node $DEPLOYPATH/$PRODENV/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
 
