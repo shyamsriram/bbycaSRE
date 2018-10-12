@@ -19,11 +19,10 @@ WEBSITE DETAILS:
 
 To Test if the Node Js Application is running on your browser type the following Url addresses on your browser:
 
-Development URL: http://ec2-35-164-59-206.us-west-2.compute.amazonaws.com:8001/
-Test URL: http://ec2-35-164-59-206.us-west-2.compute.amazonaws.com:8002/
-Disaster Recovery URL: http://ec2-35-164-59-206.us-west-2.compute.amazonaws.com:8003/
-Production URL: http://ec2-35-164-59-206.us-
-west-2.compute.amazonaws.com:8004/
+1) Development URL: http://ec2-35-164-59-206.us-west-2.compute.amazonaws.com:8001/
+2) Test URL: http://ec2-35-164-59-206.us-west-2.compute.amazonaws.com:8002/
+3) Disaster Recovery URL: http://ec2-35-164-59-206.us-west-2.compute.amazonaws.com:8003/
+4) Production URL: http://ec2-35-164-59-206.us-west-2.compute.amazonaws.com:8004/
 
 AUTOMATIC DEPLOYMENT:
 
@@ -47,10 +46,10 @@ https://us-west-2.console.aws.amazon.com/codesuite/codepipeline/pipelines/GitHub
 
 The code deployment is first staged by AWS Code Deploy at /var/bbycasre/staging/ and then deployed to the following File Locations on the EC2 Server:
 
-Development: 	/opt/bbycaSRE/DEV/bbycaSREApp/ (ENV: DEV, PORT: 8001)
-Test:		/opt/bbycaSRE/TEST/bbycaSREApp/ (ENV: TEST, PORT: 8002)
-Disaster:	/opt/bbycaSRE/TEST/bbycaSREApp/ (ENV: DR, PORT: 8003)
-Production:	/opt/bbycaSRE/TEST/bbycaSREApp/ (ENV: PROD, PORT: 8004)
+1) Development: /opt/bbycaSRE/DEV/bbycaSREApp/ (ENV: DEV, PORT: 8001)
+2) Test: /opt/bbycaSRE/TEST/bbycaSREApp/ (ENV: TEST, PORT: 8002)
+3) Disaster: /opt/bbycaSRE/TEST/bbycaSREApp/ (ENV: DR, PORT: 8003)
+4) Production: /opt/bbycaSRE/TEST/bbycaSREApp/ (ENV: PROD, PORT: 8004)
 
 CHALLENGES:
 
@@ -59,4 +58,4 @@ Challenges faced while Designing the Deployment Pipeline:
 1) Amazon Documentation is Vague about how Environment Variables Map to the Code Deployment Group. I was able to infer this by Setting the Deployment Group Value on AWS Code Deploy and then Log the variable value details in the shell scripts during Deployment Execution.
 2) The code deploy agent needed to Deploy code automatically works well with only Amazon Linux Instances. I figured this out through trial and error and reading up online forums.
 3) The Code Deployment Group needs correct Security Policy to allow creation of new Deployment groups like Test, Prod, Disaster recovery, etc. I fixed this by applying correct policy on Trust Relationships under the IAM Roles defined on AWS Console.
-4) The deploy agent doesnt execute under the same environment as command line. This can cause the server to fail to start up automatically after successful deployment. I resolved this by sourcing bashrc in te StartServer.sh script.
+4) The deploy agent doesnt execute under the same environment as command line. This can cause the server to fail to start up automatically after successful deployment. I resolved this by sourcing bashrc in the StartServer.sh script.
