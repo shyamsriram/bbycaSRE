@@ -2,12 +2,12 @@ READ ME:
 
 This documentation Covers the Solution Details for the Code Assignment found on https://github.com/omartinezpou/bbycaSRE:
 
-The Application is hosted on Amazon EC2 instance with the hostname: ec2-35-164-59-206.us-west-2.compute.amazonaws.com.
-The Deployment Pipeline is Implemented Using Amazon Code Pipe Line Cloud Service Component and Amazon Code Deploy Cloud Service Component.
+The Application is hosted on Remote Amazon EC2 Server instance with the DNS hostname: ec2-35-164-59-206.us-west-2.compute.amazonaws.com.
+The Deployment Pipeline is Implemented Using Amazon Code Pipe Line and Amazon Code Deploy Cloud Service Components.
 
 LOGIN:
 
-To Login to the remote the Server where the Code is Deployed (Amazon EC2 Server) use the included pem file (sent seperately) and type the command on your console:
+To Login to the remote Server where Code is Deployed (Amazon EC2 Server) use the included pem file (sent seperately) and type the following command on your console:
 
 ssh -i <Path to pem key file> ec2-user@ec2-35-164-59-206.us-west-2.compute.amazonaws.com
 
@@ -17,7 +17,7 @@ Note: The key pem file is sent to you seperately and will be needed to authentic
 
 WEBSITE DETAILS:
 
-To Test if the Node Js Application is running on your browser type the following Url addresses on your browser:
+To Test if the Node Js Application is running on the Remote Target Server type the following Url addresses on your browser:
 
 1) Development URL: http://ec2-35-164-59-206.us-west-2.compute.amazonaws.com:8001/
 2) Test URL: http://ec2-35-164-59-206.us-west-2.compute.amazonaws.com:8002/
@@ -26,21 +26,17 @@ To Test if the Node Js Application is running on your browser type the following
 
 AUTOMATIC DEPLOYMENT:
 
-To Trigger an Automatic Deployment:
-
-Check in your code updates to the Code Repository on Git Hub at the following URL:
+To Trigger an Automatic Deployment, Check in your code updates to the Code Repository on Git Hub at the following URL:
 
 https://github.com/shyamsriram/bbycaSRE
 
-Checking in any code changes to the above Git Hub repo will Trigger an automatic code build on the pipeline.
+Checking in any code changes to the above Git Hub repo will Trigger an automatic code build on the Amazon Code Pipeline Cloud Service.
 
 Code will be downloded from the Git Hub Repo and Deployed by Amazon Code Pipeline to the EC2 Server in the following workflow order:
 
 Source Trigger -> Deploy to Development -> Deploy to Test -> Deploy to Disaster Recovery -> Deploy to Production -> Deploy to All Environments (If Enabled)
 
-DEPLOYMENT PIPELINE:
-
-To observe the pipeline progress in real time as it deploys the code, login to the AWS Console using Credentials for AWS (Provided Seperately in email) and navigate to DeveloperTools -> CodePipeline -> Pipeline-> GitHub2AWSPipeLine or use the following URL:
+To observe the Code Deployment progress in real time as it deploys the code changes, Login to the AWS Console using Credentials for AWS (Provided Seperately in email) and navigate to DeveloperTools -> CodePipeline -> Pipeline-> GitHub2AWSPipeLine or use the following URL:
 
 https://us-west-2.console.aws.amazon.com/codesuite/codepipeline/pipelines/GitHub2AWSPipeLine/view?region=us-west-2
 
