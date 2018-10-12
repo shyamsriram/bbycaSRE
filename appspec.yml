@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-   - source: /
+   - source: /bbycaSREApp
      destination: /var/bbycasre/staging
 permissions:
    - object: /var/bbycasre/staging
