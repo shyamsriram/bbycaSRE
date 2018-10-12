@@ -67,6 +67,42 @@ then
 	#Start the Server in background
 	node $DEPLOYPATH/$PRODENV/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
 
+elif [ "$DEPLOYMENT_GROUP_NAME" = "All" ]
+then
+	#If all Deployments was simultaneously selected, then Start Up all Server instances
+	
+	#Development	
+	export ENV=$DEVENV
+	export PORT=$DEVPORT
+	mkdir -p $DEPLOYPATH/$DEVENV
+	cp -prf $STAGING/* $DEPLOYPATH/$DEVENV
+	date +"%d-%b-%Y %H:%M:%S (%Z) Starting Best Buy DEV Node Js Application...!!!" >> $LOG
+	node $DEPLOYPATH/$DEVENV/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
+
+	#Test
+	export ENV=$TESTENV
+	export PORT=$TESTPORT
+	mkdir -p $DEPLOYPATH/$TESTENV
+	cp -prf $STAGING/* $DEPLOYPATH/$TESTENV
+	date +"%d-%b-%Y %H:%M:%S (%Z) Starting Best Buy TEST Node Js Application...!!!" >> $LOG
+	node $DEPLOYPATH/$TESTENV/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
+
+	#Disaster
+	export ENV=$DRENV
+	export PORT=$DRPORT
+	mkdir -p $DEPLOYPATH/$DRENV
+	cp -prf $STAGING/* $DEPLOYPATH/$DRENV
+	date +"%d-%b-%Y %H:%M:%S (%Z) Starting Best Buy DR Node Js Application...!!!" >> $LOG
+	node $DEPLOYPATH/$DRENV/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
+
+	#Production		
+	export ENV=$PRODENV
+	export PORT=$PRODPORT
+	mkdir -p $DEPLOYPATH/$PRODENV
+	cp -prf $STAGING/* $DEPLOYPATH/$PRODENV
+	date +"%d-%b-%Y %H:%M:%S (%Z) Starting Best Buy PROD Node Js Application...!!!" >> $LOG
+	node $DEPLOYPATH/$PRODENV/bbycaSREApp/src/bestbuy.ca.js 1>>$LOG 2>>$LOG &
+
 else
 	date +"%d-%b-%Y %H:%M:%S (%Z) Unknown Deployment Group: $DEPLOYMENT_GROUP_NAME Detected!!! Deployment has Failed!!!" >> $LOG
 	#Fail and Exit
